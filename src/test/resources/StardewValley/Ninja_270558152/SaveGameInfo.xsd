@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Farmer" type="FarmerType"/>
+  <xs:complexType name="scaleType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="float" minOccurs="0"/>
+      <xs:element type="xs:string" name="X" minOccurs="0"/>
+      <xs:element type="xs:string" name="Y" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PositionType">
+    <xs:sequence>
+      <xs:element name="X">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1728"/>
+            <xs:enumeration value="3462"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Y">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="864"/>
+            <xs:enumeration value="5582"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nextQuestsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hasBeenKissedTodayType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="shouldPlayRobinHammerAnimationType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="shouldPlaySpousePatioAnimationType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DefaultPositionType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="X"/>
+      <xs:element type="xs:string" name="Y"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="anyTypeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="isEmoting"/>
+      <xs:element type="xs:string" name="isCharging"/>
+      <xs:element type="xs:string" name="isGlowing"/>
+      <xs:element type="xs:string" name="coloredBorder"/>
+      <xs:element type="xs:string" name="flip"/>
+      <xs:element type="xs:string" name="drawOnTop"/>
+      <xs:element type="xs:string" name="faceTowardFarmer"/>
+      <xs:element type="xs:string" name="ignoreMovementAnimation"/>
+      <xs:element type="xs:string" name="faceAwayFromFarmer"/>
+      <xs:element type="scaleType" name="scale"/>
+      <xs:element type="xs:string" name="timeBeforeAIMovementAgain"/>
+      <xs:element type="xs:string" name="glowingTransparency"/>
+      <xs:element type="xs:string" name="glowRate"/>
+      <xs:element type="xs:string" name="willDestroyObjectsUnderfoot"/>
+      <xs:element type="PositionType" name="Position"/>
+      <xs:element type="xs:string" name="Speed"/>
+      <xs:element type="xs:string" name="FacingDirection"/>
+      <xs:element type="xs:string" name="IsEmoting"/>
+      <xs:element type="xs:string" name="CurrentEmote"/>
+      <xs:element type="xs:string" name="Scale"/>
+      <xs:element type="xs:string" name="textAboveHead"/>
+      <xs:element type="xs:string" name="textAboveHeadPreTimer"/>
+      <xs:element type="xs:string" name="textAboveHeadTimer"/>
+      <xs:element type="xs:string" name="textAboveHeadStyle"/>
+      <xs:element type="xs:string" name="textAboveHeadColor"/>
+      <xs:element type="xs:string" name="daysAfterLastBirth"/>
+      <xs:element type="xs:string" name="birthday_Season"/>
+      <xs:element type="xs:string" name="birthday_Day"/>
+      <xs:element type="xs:string" name="age"/>
+      <xs:element type="xs:string" name="manners"/>
+      <xs:element type="xs:string" name="socialAnxiety"/>
+      <xs:element type="xs:string" name="optimism"/>
+      <xs:element type="xs:string" name="gender"/>
+      <xs:element type="xs:string" name="isInvisible"/>
+      <xs:element type="xs:string" name="lastSeenMovieWeek"/>
+      <xs:element type="xs:string" name="datingFarmer"/>
+      <xs:element type="xs:string" name="divorcedFromFarmer"/>
+      <xs:element type="xs:string" name="datable"/>
+      <xs:element type="xs:string" name="defaultMap"/>
+      <xs:element type="xs:string" name="loveInterest"/>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="homeRegion"/>
+      <xs:element type="xs:string" name="daysUntilNotInvisible"/>
+      <xs:element type="xs:string" name="followSchedule"/>
+      <xs:element type="xs:string" name="moveTowardPlayerThreshold"/>
+      <xs:element type="hasBeenKissedTodayType" name="hasBeenKissedToday"/>
+      <xs:element type="shouldPlayRobinHammerAnimationType" name="shouldPlayRobinHammerAnimation"/>
+      <xs:element type="shouldPlaySpousePatioAnimationType" name="shouldPlaySpousePatioAnimation"/>
+      <xs:element type="xs:string" name="DefaultFacingDirection"/>
+      <xs:element type="xs:string" name="DefaultMap"/>
+      <xs:element type="DefaultPositionType" name="DefaultPosition"/>
+      <xs:element type="xs:string" name="IsWalkingInSquare"/>
+      <xs:element type="xs:string" name="IsWalkingTowardPlayer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paramType">
+    <xs:sequence>
+      <xs:element type="anyTypeType" name="anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="objectiveType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="xmlKey"/>
+      <xs:element type="paramType" name="param"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QuestType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="_currentObjective"/>
+      <xs:element type="xs:string" name="_questDescription"/>
+      <xs:element type="xs:string" name="_questTitle"/>
+      <xs:element type="xs:string" name="rewardDescription"/>
+      <xs:element type="xs:string" name="accepted"/>
+      <xs:element type="xs:string" name="completed"/>
+      <xs:element type="xs:string" name="dailyQuest"/>
+      <xs:element type="xs:string" name="showNew"/>
+      <xs:element type="xs:string" name="canBeCancelled"/>
+      <xs:element type="xs:string" name="destroy"/>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="moneyReward"/>
+      <xs:element type="xs:string" name="questType"/>
+      <xs:element type="xs:string" name="daysLeft"/>
+      <xs:element type="xs:string" name="dayQuestAccepted"/>
+      <xs:element type="nextQuestsType" name="nextQuests"/>
+      <xs:element type="xs:string" name="questTitle"/>
+      <xs:element type="xs:string" name="npcName"/>
+      <xs:element type="xs:string" name="locationOfItem"/>
+      <xs:element type="xs:string" name="itemIndex"/>
+      <xs:element type="xs:string" name="tileX"/>
+      <xs:element type="xs:string" name="tileY"/>
+      <xs:element type="xs:string" name="itemFound"/>
+      <xs:element type="objectiveType" name="objective"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="questLogType">
+    <xs:sequence>
+      <xs:element type="QuestType" name="Quest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="professionsType">
+    <xs:sequence>
+      <xs:element name="int" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="13"/>
+            <xs:enumeration value="19"/>
+            <xs:enumeration value="25"/>
+            <xs:enumeration value="5"/>
+            <xs:enumeration value="7"/>
+            <xs:enumeration value="10"/>
+            <xs:enumeration value="29"/>
+            <xs:enumeration value="17"/>
+            <xs:enumeration value="22"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="experiencePointsType">
+    <xs:sequence>
+      <xs:element name="int" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="42844"/>
+            <xs:enumeration value="26955"/>
+            <xs:enumeration value="17065"/>
+            <xs:enumeration value="17607"/>
+            <xs:enumeration value="23428"/>
+            <xs:enumeration value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemType" mixed="true">
+    <xs:sequence>
+      <xs:element type="xs:string" name="isLostItem" minOccurs="0"/>
+      <xs:element type="xs:string" name="category" minOccurs="0"/>
+      <xs:element name="hasBeenInInventory" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="name" minOccurs="0"/>
+      <xs:element type="xs:string" name="parentSheetIndex" minOccurs="0"/>
+      <xs:element type="xs:string" name="specialItem" minOccurs="0"/>
+      <xs:element type="xs:string" name="SpecialVariable" minOccurs="0"/>
+      <xs:element type="xs:string" name="DisplayName" minOccurs="0"/>
+      <xs:element type="xs:string" name="Name" minOccurs="0"/>
+      <xs:element type="xs:string" name="Stack" minOccurs="0"/>
+      <xs:element name="initialParentTileIndex" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="322"/>
+            <xs:enumeration value="238"/>
+            <xs:enumeration value="70"/>
+            <xs:enumeration value="154"/>
+            <xs:enumeration value="53"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="11"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="currentParentTileIndex" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="327"/>
+            <xs:enumeration value="239"/>
+            <xs:enumeration value="72"/>
+            <xs:enumeration value="156"/>
+            <xs:enumeration value="53"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="11"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="indexOfMenuItemView" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="345"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="96"/>
+            <xs:enumeration value="180"/>
+            <xs:enumeration value="53"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="11"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="stackable" minOccurs="0"/>
+      <xs:element name="instantUse" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="false"/>
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="upgradeLevel" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="numAttachmentSlots" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="attachments" minOccurs="0">
+        <xs:complexType mixed="true">
+          <xs:sequence>
+            <xs:element type="ObjectType" name="Object" maxOccurs="unbounded" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BaseName" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Watering Can"/>
+            <xs:enumeration value="Axe"/>
+            <xs:enumeration value="Hoe"/>
+            <xs:enumeration value="Pickaxe"/>
+            <xs:enumeration value="Golden Scythe"/>
+            <xs:enumeration value="Galaxy Sword"/>
+            <xs:enumeration value="Fishing Rod"/>
+            <xs:enumeration value="Return Scepter"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="InitialParentTileIndex" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="322"/>
+            <xs:enumeration value="238"/>
+            <xs:enumeration value="70"/>
+            <xs:enumeration value="154"/>
+            <xs:enumeration value="53"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="11"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IndexOfMenuItemView" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="345"/>
+            <xs:enumeration value="264"/>
+            <xs:enumeration value="96"/>
+            <xs:enumeration value="180"/>
+            <xs:enumeration value="53"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="11"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="InstantUse" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="false"/>
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="Stackable" minOccurs="0"/>
+      <xs:element type="xs:string" name="waterCanMax" minOccurs="0"/>
+      <xs:element type="xs:string" name="WaterLeft" minOccurs="0"/>
+      <xs:element type="xs:string" name="hasBeenInventory" minOccurs="0"/>
+      <xs:element type="tileLocationType" name="tileLocation" minOccurs="0"/>
+      <xs:element name="owner" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="-8261026100698372401"/>
+            <xs:enumeration value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="type" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="Crafting"/>
+            <xs:enumeration value="Cooking"/>
+            <xs:enumeration value="Basic"/>
+            <xs:enumeration value="Minerals"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="minDamage" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="13"/>
+            <xs:enumeration value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="maxDamage" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="13"/>
+            <xs:enumeration value="80"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="speed" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="8"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="addedPrecision" minOccurs="0"/>
+      <xs:element type="xs:string" name="addedDefense" minOccurs="0"/>
+      <xs:element name="addedAreaOfEffect" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="knockback" minOccurs="0"/>
+      <xs:element type="xs:string" name="critChance" minOccurs="0"/>
+      <xs:element name="critMultiplier" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="isOnSpecial" minOccurs="0"/>
+      <xs:element type="xs:string" name="canBeSetDown" minOccurs="0"/>
+      <xs:element type="xs:string" name="canBeGrabbed" minOccurs="0"/>
+      <xs:element type="xs:string" name="isHoedirt" minOccurs="0"/>
+      <xs:element name="isSpawnedObject" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="false"/>
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="questItem" minOccurs="0"/>
+      <xs:element type="xs:string" name="questId" minOccurs="0"/>
+      <xs:element type="xs:string" name="isOn" minOccurs="0"/>
+      <xs:element name="fragility" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="price" minOccurs="0"/>
+      <xs:element name="edibility" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="-300"/>
+            <xs:enumeration value="60"/>
+            <xs:enumeration value="45"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="50"/>
+            <xs:enumeration value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="stack" minOccurs="0"/>
+      <xs:element name="quality" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="bigCraftable" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="false"/>
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="setOutdoors" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="false"/>
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="setIndoors" minOccurs="0"/>
+      <xs:element type="xs:string" name="readyForHarvest" minOccurs="0"/>
+      <xs:element type="xs:string" name="showNextIndex" minOccurs="0"/>
+      <xs:element name="flipped" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="false"/>
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="hasBeenPickedUpByFarmer" minOccurs="0"/>
+      <xs:element type="xs:string" name="isRecipe" minOccurs="0"/>
+      <xs:element type="xs:string" name="isLamp" minOccurs="0"/>
+      <xs:element type="xs:string" name="minutesUntilReady" minOccurs="0"/>
+      <xs:element type="boundingBoxType" name="boundingBox" minOccurs="0"/>
+      <xs:element type="scaleType" name="scale" minOccurs="0"/>
+      <xs:element type="xs:string" name="uses" minOccurs="0"/>
+      <xs:element type="xs:string" name="lastNoteBlockSoundTime" minOccurs="0"/>
+      <xs:element type="xs:string" name="preservedParentSheetIndex" minOccurs="0"/>
+      <xs:element type="xs:string" name="charged" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tileLocationType">
+    <xs:sequence>
+      <xs:element name="X">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Y">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="19"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LocationType">
+    <xs:sequence>
+      <xs:element name="X">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1024"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Y">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1216"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="boundingBoxType">
+    <xs:sequence>
+      <xs:element name="X">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1024"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Y">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1216"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="Width"/>
+      <xs:element type="xs:string" name="Height"/>
+      <xs:element type="LocationType" name="Location"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjectType" mixed="true">
+    <xs:sequence>
+      <xs:element type="xs:string" name="isLostItem" minOccurs="0"/>
+      <xs:element type="xs:string" name="category" minOccurs="0"/>
+      <xs:element type="xs:string" name="hasBeenInInventory" minOccurs="0"/>
+      <xs:element type="xs:string" name="name" minOccurs="0"/>
+      <xs:element type="xs:string" name="parentSheetIndex" minOccurs="0"/>
+      <xs:element type="xs:string" name="specialItem" minOccurs="0"/>
+      <xs:element type="xs:string" name="SpecialVariable" minOccurs="0"/>
+      <xs:element type="xs:string" name="DisplayName" minOccurs="0"/>
+      <xs:element type="xs:string" name="Name" minOccurs="0"/>
+      <xs:element type="xs:string" name="Stack" minOccurs="0"/>
+      <xs:element type="xs:string" name="hasBeenInventory" minOccurs="0"/>
+      <xs:element type="tileLocationType" name="tileLocation" minOccurs="0"/>
+      <xs:element type="xs:string" name="owner" minOccurs="0"/>
+      <xs:element type="xs:string" name="type" minOccurs="0"/>
+      <xs:element type="xs:string" name="canBeSetDown" minOccurs="0"/>
+      <xs:element type="xs:string" name="canBeGrabbed" minOccurs="0"/>
+      <xs:element type="xs:string" name="isHoedirt" minOccurs="0"/>
+      <xs:element type="xs:string" name="isSpawnedObject" minOccurs="0"/>
+      <xs:element type="xs:string" name="questItem" minOccurs="0"/>
+      <xs:element type="xs:string" name="questId" minOccurs="0"/>
+      <xs:element type="xs:string" name="isOn" minOccurs="0"/>
+      <xs:element type="xs:string" name="fragility" minOccurs="0"/>
+      <xs:element type="xs:string" name="price" minOccurs="0"/>
+      <xs:element type="xs:string" name="edibility" minOccurs="0"/>
+      <xs:element type="xs:string" name="stack" minOccurs="0"/>
+      <xs:element type="xs:string" name="quality" minOccurs="0"/>
+      <xs:element type="xs:string" name="bigCraftable" minOccurs="0"/>
+      <xs:element type="xs:string" name="setOutdoors" minOccurs="0"/>
+      <xs:element type="xs:string" name="setIndoors" minOccurs="0"/>
+      <xs:element type="xs:string" name="readyForHarvest" minOccurs="0"/>
+      <xs:element type="xs:string" name="showNextIndex" minOccurs="0"/>
+      <xs:element type="xs:string" name="flipped" minOccurs="0"/>
+      <xs:element type="xs:string" name="hasBeenPickedUpByFarmer" minOccurs="0"/>
+      <xs:element type="xs:string" name="isRecipe" minOccurs="0"/>
+      <xs:element type="xs:string" name="isLamp" minOccurs="0"/>
+      <xs:element type="xs:string" name="minutesUntilReady" minOccurs="0"/>
+      <xs:element type="boundingBoxType" name="boundingBox" minOccurs="0"/>
+      <xs:element type="scaleType" name="scale" minOccurs="0"/>
+      <xs:element type="xs:string" name="uses" minOccurs="0"/>
+      <xs:element type="xs:string" name="lastNoteBlockSoundTime" minOccurs="0"/>
+      <xs:element type="xs:string" name="preservedParentSheetIndex" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachmentsType">
+    <xs:sequence>
+      <xs:element type="ObjectType" name="Object" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="itemsType">
+    <xs:sequence>
+      <xs:element type="ItemType" name="Item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dialogueQuestionsAnsweredType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="keyType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="string" minOccurs="0"/>
+      <xs:element type="xs:string" name="int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valueType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int" minOccurs="0"/>
+      <xs:element type="xs:string" name="unsignedInt" minOccurs="0"/>
+      <xs:element type="ArrayOfIntType" name="ArrayOfInt" minOccurs="0"/>
+      <xs:element type="dictionaryType" name="dictionary" minOccurs="0"/>
+      <xs:element type="FriendshipType" name="Friendship" minOccurs="0"/>
+      <xs:element type="xs:string" name="boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="itemType">
+    <xs:sequence>
+      <xs:element type="keyType" name="key"/>
+      <xs:element type="valueType" name="value"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cookingRecipesType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="craftingRecipesType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eventsSeenType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="secretNotesSeenType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="songsHeardType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="string" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="achievementsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="specialItemsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="specialBigCraftablesType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mailReceivedType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="string" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mailboxType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeWentToBedType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="specificMonstersKilledType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stat_dictionaryType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="seedsSown"/>
+      <xs:element type="xs:string" name="itemsShipped"/>
+      <xs:element type="xs:string" name="itemsCooked"/>
+      <xs:element type="xs:string" name="itemsCrafted"/>
+      <xs:element type="xs:string" name="chickenEggsLayed"/>
+      <xs:element type="xs:string" name="duckEggsLayed"/>
+      <xs:element type="xs:string" name="cowMilkProduced"/>
+      <xs:element type="xs:string" name="goatMilkProduced"/>
+      <xs:element type="xs:string" name="rabbitWoolProduced"/>
+      <xs:element type="xs:string" name="sheepWoolProduced"/>
+      <xs:element type="xs:string" name="cheeseMade"/>
+      <xs:element type="xs:string" name="goatCheeseMade"/>
+      <xs:element type="xs:string" name="trufflesFound"/>
+      <xs:element type="xs:string" name="stoneGathered"/>
+      <xs:element type="xs:string" name="rocksCrushed"/>
+      <xs:element type="xs:string" name="dirtHoed"/>
+      <xs:element type="xs:string" name="giftsGiven"/>
+      <xs:element type="xs:string" name="timesUnconscious"/>
+      <xs:element type="xs:string" name="averageBedtime"/>
+      <xs:element type="xs:string" name="timesFished"/>
+      <xs:element type="xs:string" name="fishCaught"/>
+      <xs:element type="xs:string" name="bouldersCracked"/>
+      <xs:element type="xs:string" name="stumpsChopped"/>
+      <xs:element type="xs:string" name="stepsTaken"/>
+      <xs:element type="xs:string" name="monstersKilled"/>
+      <xs:element type="xs:string" name="diamondsFound"/>
+      <xs:element type="xs:string" name="prismaticShardsFound"/>
+      <xs:element type="xs:string" name="otherPreciousGemsFound"/>
+      <xs:element type="xs:string" name="caveCarrotsFound"/>
+      <xs:element type="xs:string" name="copperFound"/>
+      <xs:element type="xs:string" name="ironFound"/>
+      <xs:element type="xs:string" name="coalFound"/>
+      <xs:element type="xs:string" name="coinsFound"/>
+      <xs:element type="xs:string" name="goldFound"/>
+      <xs:element type="xs:string" name="iridiumFound"/>
+      <xs:element type="xs:string" name="barsSmelted"/>
+      <xs:element type="xs:string" name="beveragesMade"/>
+      <xs:element type="xs:string" name="preservesMade"/>
+      <xs:element type="xs:string" name="piecesOfTrashRecycled"/>
+      <xs:element type="xs:string" name="mysticStonesCrushed"/>
+      <xs:element type="xs:string" name="daysPlayed"/>
+      <xs:element type="xs:string" name="weedsEliminated"/>
+      <xs:element type="xs:string" name="sticksChopped"/>
+      <xs:element type="xs:string" name="notesFound"/>
+      <xs:element type="xs:string" name="questsCompleted"/>
+      <xs:element type="xs:string" name="starLevelCropsShipped"/>
+      <xs:element type="xs:string" name="cropsShipped"/>
+      <xs:element type="xs:string" name="itemsForaged"/>
+      <xs:element type="xs:string" name="slimesKilled"/>
+      <xs:element type="xs:string" name="geodesCracked"/>
+      <xs:element type="xs:string" name="goodFriends"/>
+      <xs:element type="xs:string" name="totalMoneyGifted"/>
+      <xs:element type="xs:string" name="individualMoneyEarned"/>
+      <xs:element type="specificMonstersKilledType" name="specificMonstersKilled"/>
+      <xs:element type="stat_dictionaryType" name="stat_dictionary"/>
+      <xs:element type="xs:string" name="GoodFriends"/>
+      <xs:element type="xs:string" name="CropsShipped"/>
+      <xs:element type="xs:string" name="ItemsForaged"/>
+      <xs:element type="xs:string" name="GeodesCracked"/>
+      <xs:element type="xs:string" name="SlimesKilled"/>
+      <xs:element type="xs:string" name="StarLevelCropsShipped"/>
+      <xs:element type="xs:string" name="StoneGathered"/>
+      <xs:element type="xs:string" name="QuestsCompleted"/>
+      <xs:element type="xs:string" name="FishCaught"/>
+      <xs:element type="xs:string" name="NotesFound"/>
+      <xs:element type="xs:string" name="SticksChopped"/>
+      <xs:element type="xs:string" name="WeedsEliminated"/>
+      <xs:element type="xs:string" name="DaysPlayed"/>
+      <xs:element type="xs:string" name="BouldersCracked"/>
+      <xs:element type="xs:string" name="MysticStonesCrushed"/>
+      <xs:element type="xs:string" name="GoatCheeseMade"/>
+      <xs:element type="xs:string" name="CheeseMade"/>
+      <xs:element type="xs:string" name="PiecesOfTrashRecycled"/>
+      <xs:element type="xs:string" name="PreservesMade"/>
+      <xs:element type="xs:string" name="BeveragesMade"/>
+      <xs:element type="xs:string" name="BarsSmelted"/>
+      <xs:element type="xs:string" name="IridiumFound"/>
+      <xs:element type="xs:string" name="GoldFound"/>
+      <xs:element type="xs:string" name="CoinsFound"/>
+      <xs:element type="xs:string" name="CoalFound"/>
+      <xs:element type="xs:string" name="IronFound"/>
+      <xs:element type="xs:string" name="CopperFound"/>
+      <xs:element type="xs:string" name="CaveCarrotsFound"/>
+      <xs:element type="xs:string" name="OtherPreciousGemsFound"/>
+      <xs:element type="xs:string" name="PrismaticShardsFound"/>
+      <xs:element type="xs:string" name="DiamondsFound"/>
+      <xs:element type="xs:string" name="MonstersKilled"/>
+      <xs:element type="xs:string" name="StepsTaken"/>
+      <xs:element type="xs:string" name="StumpsChopped"/>
+      <xs:element type="xs:string" name="TimesFished"/>
+      <xs:element type="xs:string" name="AverageBedtime"/>
+      <xs:element type="xs:string" name="TimesUnconscious"/>
+      <xs:element type="xs:string" name="GiftsGiven"/>
+      <xs:element type="xs:string" name="DirtHoed"/>
+      <xs:element type="xs:string" name="RocksCrushed"/>
+      <xs:element type="xs:string" name="TrufflesFound"/>
+      <xs:element type="xs:string" name="SheepWoolProduced"/>
+      <xs:element type="xs:string" name="RabbitWoolProduced"/>
+      <xs:element type="xs:string" name="GoatMilkProduced"/>
+      <xs:element type="xs:string" name="CowMilkProduced"/>
+      <xs:element type="xs:string" name="DuckEggsLayed"/>
+      <xs:element type="xs:string" name="ItemsCrafted"/>
+      <xs:element type="xs:string" name="ChickenEggsLayed"/>
+      <xs:element type="xs:string" name="ItemsCooked"/>
+      <xs:element type="xs:string" name="ItemsShipped"/>
+      <xs:element type="xs:string" name="SeedsSown"/>
+      <xs:element type="xs:string" name="IndividualMoneyEarned"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="itemsLostLastDeathType">
+    <xs:sequence>
+      <xs:element type="ItemType" name="Item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mostRecentBedType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="X"/>
+      <xs:element type="xs:string" name="Y"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hairstyleColorType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="R"/>
+      <xs:element type="xs:string" name="G"/>
+      <xs:element type="xs:string" name="B"/>
+      <xs:element type="xs:string" name="A"/>
+      <xs:element type="xs:string" name="PackedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pantsColorType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="R"/>
+      <xs:element type="xs:string" name="G"/>
+      <xs:element type="xs:string" name="B"/>
+      <xs:element type="xs:string" name="A"/>
+      <xs:element type="xs:string" name="PackedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="newEyeColorType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="R"/>
+      <xs:element type="xs:string" name="G"/>
+      <xs:element type="xs:string" name="B"/>
+      <xs:element type="xs:string" name="A"/>
+      <xs:element type="xs:string" name="PackedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hatType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="isLostItem"/>
+      <xs:element type="xs:string" name="category"/>
+      <xs:element type="xs:string" name="hasBeenInInventory"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="specialItem"/>
+      <xs:element type="xs:string" name="SpecialVariable"/>
+      <xs:element type="xs:string" name="DisplayName"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="Stack"/>
+      <xs:element type="xs:string" name="which"/>
+      <xs:element type="xs:string" name="skipHairDraw"/>
+      <xs:element type="xs:string" name="ignoreHairstyleOffset"/>
+      <xs:element type="xs:string" name="hairDrawType"/>
+      <xs:element type="xs:string" name="isPrismatic"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bootsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="isLostItem"/>
+      <xs:element type="xs:string" name="category"/>
+      <xs:element type="xs:string" name="hasBeenInInventory"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="specialItem"/>
+      <xs:element type="xs:string" name="SpecialVariable"/>
+      <xs:element type="xs:string" name="DisplayName"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="Stack"/>
+      <xs:element type="xs:string" name="defenseBonus"/>
+      <xs:element type="xs:string" name="immunityBonus"/>
+      <xs:element type="xs:string" name="indexInTileSheet"/>
+      <xs:element type="xs:string" name="price"/>
+      <xs:element type="xs:string" name="indexInColorSheet"/>
+      <xs:element type="xs:string" name="appliedBootSheetIndex"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="leftRingType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="isLostItem"/>
+      <xs:element type="xs:string" name="category"/>
+      <xs:element type="xs:string" name="hasBeenInInventory"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="parentSheetIndex"/>
+      <xs:element type="xs:string" name="specialItem"/>
+      <xs:element type="xs:string" name="SpecialVariable"/>
+      <xs:element type="xs:string" name="DisplayName"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="Stack"/>
+      <xs:element type="xs:string" name="price"/>
+      <xs:element type="xs:string" name="indexInTileSheet"/>
+      <xs:element type="xs:string" name="uniqueID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rightRingType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="isLostItem"/>
+      <xs:element type="xs:string" name="category"/>
+      <xs:element type="xs:string" name="hasBeenInInventory"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="parentSheetIndex"/>
+      <xs:element type="xs:string" name="specialItem"/>
+      <xs:element type="xs:string" name="SpecialVariable"/>
+      <xs:element type="xs:string" name="DisplayName"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="Stack"/>
+      <xs:element type="xs:string" name="price"/>
+      <xs:element type="xs:string" name="indexInTileSheet"/>
+      <xs:element type="xs:string" name="uniqueID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clothesColorType">
+    <xs:sequence>
+      <xs:element name="R">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="126"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="G">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="50"/>
+            <xs:enumeration value="46"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="B">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="200"/>
+            <xs:enumeration value="18"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="A"/>
+      <xs:element name="PackedValue">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="4291310080"/>
+            <xs:enumeration value="4279381630"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="shirtItemType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="isLostItem"/>
+      <xs:element type="xs:string" name="category"/>
+      <xs:element type="xs:string" name="hasBeenInInventory"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="parentSheetIndex"/>
+      <xs:element type="xs:string" name="specialItem"/>
+      <xs:element type="xs:string" name="SpecialVariable"/>
+      <xs:element type="xs:string" name="DisplayName"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="Stack"/>
+      <xs:element type="xs:string" name="price"/>
+      <xs:element type="xs:string" name="indexInTileSheet"/>
+      <xs:element type="xs:string" name="indexInTileSheetFemale"/>
+      <xs:element type="xs:string" name="clothesType"/>
+      <xs:element type="xs:string" name="dyeable"/>
+      <xs:element type="clothesColorType" name="clothesColor"/>
+      <xs:element type="xs:string" name="otherData"/>
+      <xs:element type="xs:string" name="isPrismatic"/>
+      <xs:element type="xs:string" name="Price"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pantsItemType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="isLostItem"/>
+      <xs:element type="xs:string" name="category"/>
+      <xs:element type="xs:string" name="hasBeenInInventory"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="parentSheetIndex"/>
+      <xs:element type="xs:string" name="specialItem"/>
+      <xs:element type="xs:string" name="SpecialVariable"/>
+      <xs:element type="xs:string" name="DisplayName"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="Stack"/>
+      <xs:element type="xs:string" name="price"/>
+      <xs:element type="xs:string" name="indexInTileSheet"/>
+      <xs:element type="xs:string" name="indexInTileSheetFemale"/>
+      <xs:element type="xs:string" name="clothesType"/>
+      <xs:element type="xs:string" name="dyeable"/>
+      <xs:element type="clothesColorType" name="clothesColor"/>
+      <xs:element type="xs:string" name="otherData"/>
+      <xs:element type="xs:string" name="isPrismatic"/>
+      <xs:element type="xs:string" name="Price"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="basicShippedType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mineralsFoundType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="recipesCookedType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfIntType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="int" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fishCaughtType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archaeologyFoundType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dictionaryType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="giftedItemsType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tailoredItemsType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LastGiftDateType">
+    <xs:sequence>
+      <xs:element name="Year">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DayOfMonth">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="9"/>
+            <xs:enumeration value="5"/>
+            <xs:enumeration value="11"/>
+            <xs:enumeration value="7"/>
+            <xs:enumeration value="10"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="8"/>
+            <xs:enumeration value="19"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Season">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="spring"/>
+            <xs:enumeration value="winter"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TotalDays">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="232"/>
+            <xs:enumeration value="228"/>
+            <xs:enumeration value="234"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="233"/>
+            <xs:enumeration value="227"/>
+            <xs:enumeration value="226"/>
+            <xs:enumeration value="231"/>
+            <xs:enumeration value="214"/>
+            <xs:enumeration value="225"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FriendshipType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Points"/>
+      <xs:element type="xs:string" name="GiftsThisWeek"/>
+      <xs:element type="xs:string" name="GiftsToday"/>
+      <xs:element type="LastGiftDateType" name="LastGiftDate" minOccurs="0"/>
+      <xs:element type="xs:string" name="TalkedToToday"/>
+      <xs:element type="xs:string" name="ProposalRejected"/>
+      <xs:element name="Status">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Friendly"/>
+            <xs:enumeration value="Dating"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="Proposer"/>
+      <xs:element type="xs:string" name="RoommateMarriage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="friendshipDataType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chestConsumedLevelsType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FarmerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="isEmoting"/>
+      <xs:element type="xs:string" name="isCharging"/>
+      <xs:element type="xs:string" name="isGlowing"/>
+      <xs:element type="xs:string" name="coloredBorder"/>
+      <xs:element type="xs:string" name="flip"/>
+      <xs:element type="xs:string" name="drawOnTop"/>
+      <xs:element type="xs:string" name="faceTowardFarmer"/>
+      <xs:element type="xs:string" name="ignoreMovementAnimation"/>
+      <xs:element type="xs:string" name="faceAwayFromFarmer"/>
+      <xs:element type="scaleType" name="scale"/>
+      <xs:element type="xs:string" name="timeBeforeAIMovementAgain"/>
+      <xs:element type="xs:string" name="glowingTransparency"/>
+      <xs:element type="xs:string" name="glowRate"/>
+      <xs:element type="xs:string" name="willDestroyObjectsUnderfoot"/>
+      <xs:element type="PositionType" name="Position"/>
+      <xs:element type="xs:string" name="Speed"/>
+      <xs:element type="xs:string" name="FacingDirection"/>
+      <xs:element type="xs:string" name="IsEmoting"/>
+      <xs:element type="xs:string" name="CurrentEmote"/>
+      <xs:element type="xs:string" name="Scale"/>
+      <xs:element type="questLogType" name="questLog"/>
+      <xs:element type="professionsType" name="professions"/>
+      <xs:element type="xs:string" name="newLevels"/>
+      <xs:element type="experiencePointsType" name="experiencePoints"/>
+      <xs:element type="itemsType" name="items"/>
+      <xs:element type="dialogueQuestionsAnsweredType" name="dialogueQuestionsAnswered"/>
+      <xs:element type="xs:string" name="furnitureOwned"/>
+      <xs:element type="cookingRecipesType" name="cookingRecipes"/>
+      <xs:element type="craftingRecipesType" name="craftingRecipes"/>
+      <xs:element type="xs:string" name="activeDialogueEvents"/>
+      <xs:element type="eventsSeenType" name="eventsSeen"/>
+      <xs:element type="secretNotesSeenType" name="secretNotesSeen"/>
+      <xs:element type="songsHeardType" name="songsHeard"/>
+      <xs:element type="achievementsType" name="achievements"/>
+      <xs:element type="specialItemsType" name="specialItems"/>
+      <xs:element type="specialBigCraftablesType" name="specialBigCraftables"/>
+      <xs:element type="mailReceivedType" name="mailReceived"/>
+      <xs:element type="xs:string" name="mailForTomorrow"/>
+      <xs:element type="mailboxType" name="mailbox"/>
+      <xs:element type="timeWentToBedType" name="timeWentToBed"/>
+      <xs:element type="statsType" name="stats"/>
+      <xs:element type="xs:string" name="blueprints"/>
+      <xs:element type="itemsLostLastDeathType" name="itemsLostLastDeath"/>
+      <xs:element type="xs:string" name="farmName"/>
+      <xs:element type="xs:string" name="favoriteThing"/>
+      <xs:element type="xs:string" name="horseName"/>
+      <xs:element type="xs:string" name="slotCanHost"/>
+      <xs:element type="xs:string" name="userID"/>
+      <xs:element type="xs:string" name="catPerson"/>
+      <xs:element type="xs:string" name="whichPetBreed"/>
+      <xs:element type="xs:string" name="acceptedDailyQuest"/>
+      <xs:element type="mostRecentBedType" name="mostRecentBed"/>
+      <xs:element type="xs:string" name="performedEmotes"/>
+      <xs:element type="xs:string" name="shirt"/>
+      <xs:element type="xs:string" name="hair"/>
+      <xs:element type="xs:string" name="skin"/>
+      <xs:element type="xs:string" name="shoes"/>
+      <xs:element type="xs:string" name="accessory"/>
+      <xs:element type="xs:string" name="facialHair"/>
+      <xs:element type="xs:string" name="pants"/>
+      <xs:element type="hairstyleColorType" name="hairstyleColor"/>
+      <xs:element type="pantsColorType" name="pantsColor"/>
+      <xs:element type="newEyeColorType" name="newEyeColor"/>
+      <xs:element type="hatType" name="hat"/>
+      <xs:element type="bootsType" name="boots"/>
+      <xs:element type="leftRingType" name="leftRing"/>
+      <xs:element type="rightRingType" name="rightRing"/>
+      <xs:element type="shirtItemType" name="shirtItem"/>
+      <xs:element type="pantsItemType" name="pantsItem"/>
+      <xs:element type="xs:string" name="divorceTonight"/>
+      <xs:element type="xs:string" name="changeWalletTypeTonight"/>
+      <xs:element type="xs:string" name="woodPieces"/>
+      <xs:element type="xs:string" name="stonePieces"/>
+      <xs:element type="xs:string" name="copperPieces"/>
+      <xs:element type="xs:string" name="ironPieces"/>
+      <xs:element type="xs:string" name="coalPieces"/>
+      <xs:element type="xs:string" name="goldPieces"/>
+      <xs:element type="xs:string" name="iridiumPieces"/>
+      <xs:element type="xs:string" name="quartzPieces"/>
+      <xs:element type="xs:string" name="gameVersion"/>
+      <xs:element type="xs:string" name="caveChoice"/>
+      <xs:element type="xs:string" name="feed"/>
+      <xs:element type="xs:string" name="farmingLevel"/>
+      <xs:element type="xs:string" name="miningLevel"/>
+      <xs:element type="xs:string" name="combatLevel"/>
+      <xs:element type="xs:string" name="foragingLevel"/>
+      <xs:element type="xs:string" name="fishingLevel"/>
+      <xs:element type="xs:string" name="luckLevel"/>
+      <xs:element type="xs:string" name="newSkillPointsToSpend"/>
+      <xs:element type="xs:string" name="addedFarmingLevel"/>
+      <xs:element type="xs:string" name="addedMiningLevel"/>
+      <xs:element type="xs:string" name="addedCombatLevel"/>
+      <xs:element type="xs:string" name="addedForagingLevel"/>
+      <xs:element type="xs:string" name="addedFishingLevel"/>
+      <xs:element type="xs:string" name="addedLuckLevel"/>
+      <xs:element type="xs:string" name="maxStamina"/>
+      <xs:element type="xs:string" name="maxItems"/>
+      <xs:element type="xs:string" name="lastSeenMovieWeek"/>
+      <xs:element type="xs:string" name="resilience"/>
+      <xs:element type="xs:string" name="attack"/>
+      <xs:element type="xs:string" name="immunity"/>
+      <xs:element type="xs:string" name="attackIncreaseModifier"/>
+      <xs:element type="xs:string" name="knockbackModifier"/>
+      <xs:element type="xs:string" name="weaponSpeedModifier"/>
+      <xs:element type="xs:string" name="critChanceModifier"/>
+      <xs:element type="xs:string" name="critPowerModifier"/>
+      <xs:element type="xs:string" name="weaponPrecisionModifier"/>
+      <xs:element type="xs:string" name="clubCoins"/>
+      <xs:element type="xs:string" name="trashCanLevel"/>
+      <xs:element type="xs:string" name="daysLeftForToolUpgrade"/>
+      <xs:element type="xs:string" name="houseUpgradeLevel"/>
+      <xs:element type="xs:string" name="daysUntilHouseUpgrade"/>
+      <xs:element type="xs:string" name="coopUpgradeLevel"/>
+      <xs:element type="xs:string" name="barnUpgradeLevel"/>
+      <xs:element type="xs:string" name="hasGreenhouse"/>
+      <xs:element type="xs:string" name="hasUnlockedSkullDoor"/>
+      <xs:element type="xs:string" name="hasDarkTalisman"/>
+      <xs:element type="xs:string" name="hasMagicInk"/>
+      <xs:element type="xs:string" name="showChestColorPicker"/>
+      <xs:element type="xs:string" name="hasMagnifyingGlass"/>
+      <xs:element type="xs:string" name="hasWateringCanEnchantment"/>
+      <xs:element type="xs:string" name="magneticRadius"/>
+      <xs:element type="xs:string" name="temporaryInvincibilityTimer"/>
+      <xs:element type="xs:string" name="health"/>
+      <xs:element type="xs:string" name="maxHealth"/>
+      <xs:element type="xs:string" name="difficultyModifier"/>
+      <xs:element type="xs:string" name="isMale"/>
+      <xs:element type="xs:string" name="hasBusTicket"/>
+      <xs:element type="xs:string" name="stardewHero"/>
+      <xs:element type="xs:string" name="hasClubCard"/>
+      <xs:element type="xs:string" name="hasSpecialCharm"/>
+      <xs:element type="basicShippedType" name="basicShipped"/>
+      <xs:element type="mineralsFoundType" name="mineralsFound"/>
+      <xs:element type="recipesCookedType" name="recipesCooked"/>
+      <xs:element type="fishCaughtType" name="fishCaught"/>
+      <xs:element type="archaeologyFoundType" name="archaeologyFound"/>
+      <xs:element type="giftedItemsType" name="giftedItems"/>
+      <xs:element type="tailoredItemsType" name="tailoredItems"/>
+      <xs:element type="friendshipDataType" name="friendshipData"/>
+      <xs:element type="xs:string" name="dayOfMonthForSaveGame"/>
+      <xs:element type="xs:string" name="seasonForSaveGame"/>
+      <xs:element type="xs:string" name="yearForSaveGame"/>
+      <xs:element type="xs:string" name="overallsColor"/>
+      <xs:element type="xs:string" name="shirtColor"/>
+      <xs:element type="xs:string" name="skinColor"/>
+      <xs:element type="xs:string" name="hairColor"/>
+      <xs:element type="xs:string" name="eyeColor"/>
+      <xs:element type="xs:string" name="bobber"/>
+      <xs:element type="chestConsumedLevelsType" name="chestConsumedLevels"/>
+      <xs:element type="xs:string" name="saveTime"/>
+      <xs:element type="xs:string" name="isCustomized"/>
+      <xs:element type="xs:string" name="homeLocation"/>
+      <xs:element type="xs:string" name="daysMarried"/>
+      <xs:element type="xs:string" name="movementMultiplier"/>
+      <xs:element type="xs:string" name="isBeingSick"/>
+      <xs:element type="xs:string" name="theaterBuildDate"/>
+      <xs:element type="xs:string" name="deepestMineLevel"/>
+      <xs:element type="xs:string" name="stamina"/>
+      <xs:element type="xs:string" name="totalMoneyEarned"/>
+      <xs:element type="xs:string" name="millisecondsPlayed"/>
+      <xs:element type="xs:string" name="hasRustyKey"/>
+      <xs:element type="xs:string" name="hasSkullKey"/>
+      <xs:element type="xs:string" name="canUnderstandDwarves"/>
+      <xs:element type="xs:string" name="useSeparateWallets"/>
+      <xs:element type="xs:string" name="timesReachedMineBottom"/>
+      <xs:element type="xs:string" name="UniqueMultiplayerID"/>
+      <xs:element type="xs:string" name="money"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
