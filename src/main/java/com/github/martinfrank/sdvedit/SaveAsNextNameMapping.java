@@ -11,7 +11,7 @@ public class SaveAsNextNameMapping implements Function<String, String> {
         String name = fileSet.getDirectoryName();
         int index = name.indexOf("_")+1;//just AFTER the underscore
         currentNumber = name.substring(index);
-        newNumber = ""+(maxIndex+1);//this makes the next
+        newNumber = ""+(maxIndex+1);//this makes the NEXT
     }
 
     @Override

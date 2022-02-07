@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class SdvFileManager {
 
-    private static final int UNDEFINDED_INDEX = 111111111;
+    private static final int UNDEFINED_INDEX = 111111111;
 
     private final File root;
 
@@ -53,20 +53,22 @@ public class SdvFileManager {
         File sdvDir = sdvFileSet.getDirectory();
         File filesDir = new File(root, SdvNamePattern.SDV_DIR_NAME);
         File destDir = new File(filesDir, nameMapper.apply(sdvDir.getName()));
-        createDirectory(destDir);
-        for (File f : sdvFileSet.getDirectory().listFiles()) {
-            try {
+        try {
+            createDirectory(destDir);
+            for (File f : Objects.requireNonNull(sdvFileSet.getDirectory().listFiles())) {
                 Path destFile = new File(destDir, nameMapper.apply(f.getName())).toPath();
                 Files.copy(f.toPath(), destFile, StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    private void createDirectory(File dir) {
+    private void createDirectory(File dir) throws IOException {
         if (!dir.exists()) {
-            dir.mkdirs();
+            if (!dir.mkdirs()) {
+                throw new IOException("cannot create directory");
+            }
         }
     }
 
@@ -74,12 +76,12 @@ public class SdvFileManager {
     private int getMaxIndex(SdvFileSet fileSet) {
         String filesetName = getFileSetName(fileSet);
         File[] filesWithName = getFilesWithName(filesetName);
-        return Arrays.stream(filesWithName).mapToInt(f -> getSdvFileSetIndex(f, filesetName)).max().orElse(UNDEFINDED_INDEX);
+        return Arrays.stream(filesWithName).mapToInt(f -> getSdvFileSetIndex(f, filesetName)).max().orElse(UNDEFINED_INDEX);
     }
 
     private int getSdvFileSetIndex(File candidate, String sdvFileSetName) {
-        System.out.println("candidate:"+candidate);
-        System.out.println("sdvFileSetName:"+sdvFileSetName);
+        System.out.println("candidate:" + candidate);
+        System.out.println("sdvFileSetName:" + sdvFileSetName);
         return Integer.parseInt(candidate.getName().replace(sdvFileSetName + "_", ""));
     }
 
