@@ -23,7 +23,7 @@ public class SdvFileManager {
         this.root = root;
     }
 
-    public List<SdvFileSet> LoadSdvFileSets() {
+    public List<SdvFileSet> loadSdvFileSets() {
         File filesDir = new File(root, SdvNamePattern.SDV_DIR_NAME);
         File[] files = filesDir.listFiles(SdvNamePattern.filenameFilter());
         return files == null ?
@@ -31,8 +31,13 @@ public class SdvFileManager {
                 Arrays.stream(files).map(SdvFileSet::new).collect(Collectors.toList());
     }
 
-    public boolean contains(SdvFileSet sdvFileSet) {
-        for (File dir : Objects.requireNonNull(root.listFiles(SdvNamePattern.filenameFilter()))) {
+    public File getRootDir(){
+        return root;
+    }
+
+    public boolean exists(SdvFileSet sdvFileSet) {
+        File filesDir = new File(root, SdvNamePattern.SDV_DIR_NAME);
+        for (File dir : Objects.requireNonNull(filesDir.listFiles(SdvNamePattern.filenameFilter()))) {
             if (dir.getName().equalsIgnoreCase(sdvFileSet.getDirectoryName())) {
                 return true;
             }

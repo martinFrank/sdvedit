@@ -13,17 +13,25 @@ public class SdvManagerTest {
     @Test
     public void testLoad(){
         SdvFileManager sdvFileManager = new SdvFileManager(new File(TEST_RESOURCE_DIR));
-        List<SdvFileSet> sdvFileSets = sdvFileManager.LoadSdvFileSets();
+        List<SdvFileSet> sdvFileSets = sdvFileManager.loadSdvFileSets();
 
         //we have three test data sets in our resources
         Assert.assertEquals(3, sdvFileSets.size());
     }
 
-    @Test
+    //@Test
     public void saveAsTest(){
         SdvFileManager sdvFileManager = new SdvFileManager(new File(TEST_RESOURCE_DIR));
-        List<SdvFileSet> sdvFileSets = sdvFileManager.LoadSdvFileSets();
+        List<SdvFileSet> sdvFileSets = sdvFileManager.loadSdvFileSets();
 
         sdvFileManager.saveAsNext(sdvFileSets.get(1));
+    }
+
+    @Test
+    public void existsTest(){
+        SdvFileManager sdvFileManager = new SdvFileManager(new File(TEST_RESOURCE_DIR));
+        List<SdvFileSet> sdvFileSets = sdvFileManager.loadSdvFileSets();
+        SdvFileSet sdvFileSet = sdvFileSets.get(1);
+        Assert.assertTrue(sdvFileManager.exists(sdvFileSet));
     }
 }
