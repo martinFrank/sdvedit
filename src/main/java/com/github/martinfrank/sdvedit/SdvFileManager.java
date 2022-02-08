@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SdvFileManager {
 
@@ -31,7 +29,7 @@ public class SdvFileManager {
                 Arrays.stream(files).map(SdvFileSet::new).collect(Collectors.toList());
     }
 
-    public File getRootDir(){
+    public File getRootDir() {
         return root;
     }
 
@@ -52,6 +50,22 @@ public class SdvFileManager {
 
     public void save(SdvFileSet sdvFileSet) {
         save(sdvFileSet, s -> s);
+    }
+
+    public void delete(SdvFileSet sdvFileSet) {
+        try (Stream<Path> walk = Files.walk(sdvFileSet.getDirectory().toPath())) {
+            walk.sorted(Comparator.reverseOrder()).forEach(this::deleteFile);
+        } catch (IOException e) {
+            //FIXME better exception handling
+        }
+    }
+
+    private void deleteFile(Path path) {
+        try {
+            Files.delete(path);
+        } catch (IOException e) {
+            //FIXME better exception handling
+        }
     }
 
     private void save(SdvFileSet sdvFileSet, Function<String, String> nameMapper) {

@@ -19,12 +19,16 @@ public class SdvManagerTest {
         Assert.assertEquals(3, sdvFileSets.size());
     }
 
-    //@Test
-    public void saveAsTest(){
+    @Test
+    public void saveAsAndDeleteTest(){
         SdvFileManager sdvFileManager = new SdvFileManager(new File(TEST_RESOURCE_DIR));
         List<SdvFileSet> sdvFileSets = sdvFileManager.loadSdvFileSets();
+        int last = sdvFileSets.size()-1;
+        sdvFileManager.saveAsNext(sdvFileSets.get(last));
 
-        sdvFileManager.saveAsNext(sdvFileSets.get(1));
+        sdvFileSets = sdvFileManager.loadSdvFileSets();
+        last = sdvFileSets.size()-1;
+        sdvFileManager.delete(sdvFileSets.get(last));
     }
 
     @Test
