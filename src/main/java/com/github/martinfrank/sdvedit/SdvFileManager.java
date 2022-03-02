@@ -35,7 +35,11 @@ public class SdvFileManager {
 
     public boolean exists(SdvFileSet sdvFileSet) {
         File filesDir = new File(root, SdvNamePattern.SDV_DIR_NAME);
-        for (File dir : Objects.requireNonNull(filesDir.listFiles(SdvNamePattern.filenameFilter()))) {
+        File[] candidates = filesDir.listFiles(SdvNamePattern.filenameFilter());
+        if(candidates == null){
+            return false;
+        }
+        for (File dir : candidates) {
             if (dir.getName().equalsIgnoreCase(sdvFileSet.getDirectoryName())) {
                 return true;
             }
