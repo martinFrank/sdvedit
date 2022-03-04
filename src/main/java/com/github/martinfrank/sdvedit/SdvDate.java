@@ -2,11 +2,8 @@ package com.github.martinfrank.sdvedit;
 
 public class SdvDate {
 
-    //<currentSeason>spring</currentSeason>
-    // <dayOfMonth>14</dayOfMonth>
-    //    <year>3</year>
-    public final int day;
-    public final int year;
+    public final int day; //1..28
+    public final int year; //1..99
     public final SdvSeason sdvSeason;
 
     public SdvDate(int day, int year, SdvSeason sdvSeason) {
@@ -15,9 +12,14 @@ public class SdvDate {
         this.sdvSeason = sdvSeason;
     }
 
+
     @Override
     public String toString() {
-        return day + " of Season " + sdvSeason + "in year " + year;
+        return "day " + day + " of season '" + sdvSeason.getDescription() + "' in year " + year;
+    }
+
+    public String shortDate() {
+        return day + ". " + sdvSeason.getDescription() + " year " + year;
     }
 
 }

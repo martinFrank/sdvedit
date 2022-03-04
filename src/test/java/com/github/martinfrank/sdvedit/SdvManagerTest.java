@@ -16,7 +16,7 @@ public class SdvManagerTest {
         List<SdvFileSet> sdvFileSets = sdvFileManager.loadSdvFileSets();
 
         //we have three test data sets in our resources
-        Assert.assertEquals(3, sdvFileSets.size());
+        Assert.assertEquals(4, sdvFileSets.size());
     }
 
     @Test

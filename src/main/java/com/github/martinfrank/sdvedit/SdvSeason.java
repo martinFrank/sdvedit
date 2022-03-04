@@ -2,7 +2,7 @@ package com.github.martinfrank.sdvedit;
 
 public enum SdvSeason {
 
-    SPRING (0, "Spring"), SUMMER(1, "summer"), AUTUMN(2, "autumn"), WINTER(3, "winter");
+    SPRING (0, "spring"), SUMMER(1, "summer"), AUTUMN(2, "fall"), WINTER(3, "winter");
 
     private final int index;
     private final String description;
@@ -21,9 +21,21 @@ public enum SdvSeason {
         throw new IllegalArgumentException(""+index+"is not a valid index (must be 0...3).");
     }
 
+    public static SdvSeason byDescription(String description){
+        for(SdvSeason sdvSeason: values()){
+            if (sdvSeason.description.equalsIgnoreCase(description)){
+                return sdvSeason;
+            }
+        }
+        throw new IllegalArgumentException(""+description+"is not a valid index (must be 0...3).");
+    }
 
-    @Override
-    public String toString() {
+
+    public String getDescription(){
         return description;
+    }
+
+    public int getIndex(){
+        return index;
     }
 }
